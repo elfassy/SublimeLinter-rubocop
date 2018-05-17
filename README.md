@@ -6,7 +6,7 @@ SublimeLinter-rubocop
 This linter plugin for [SublimeLinter](https://github.com/SublimeLinter/SublimeLinter) provides an interface to [rubocop](https://github.com/bbatsov/rubocop). It will be used with files that have the `ruby`, `ruby on rails`, `rspec`, `betterruby`, `better rspec`, `ruby experimental` or `cucumber steps` syntaxes.
 
 ## Installation
-SublimeLinter must be installed in order to use this plugin. 
+SublimeLinter must be installed in order to use this plugin.
 
 Please use [Package Control](https://packagecontrol.io) to install the linter plugin.
 
@@ -32,7 +32,7 @@ You can configure rubocop exactly the way you would from the command line, using
 To override the config file path, you would add this to the Sublime Linter User Settings:
 
 ```json
-{ 
+{
     "linters": {
         "rubocop": {
             "args": ["--config", "path/to/config.yml"]
@@ -45,10 +45,23 @@ To override the config file path, you would add this to the Sublime Linter User 
 If you are using Bundler and would like to use the locked rubocop version (which will also allow you to use `inherit_gem` in `rubocop.yml`, in case you are inheriting from another gem in the project), you must set `use_bundle_exec` to true:
 
 ```json
-{ 
+{
     "linters": {
         "rubocop": {
             "use_bundle_exec": true
+        }
+    }
+}
+```
+
+### Rails
+If you are using Rails and would like to use the bin/rubocop version, you must set `use_rails_bin` to true:
+
+```json
+{
+    "linters": {
+        "rubocop": {
+            "use_rails_bin": true
         }
     }
 }

@@ -28,7 +28,10 @@ class Rubocop(RubyLinter):
         if settings.get('use_bundle_exec', False):
             command.extend(['bundle', 'exec'])
 
-        command.extend(['rubocop', '--format', 'emacs'])
+        if settings.get('use_rails_bin', False):
+            command.extend(['rubocop', '--format', 'emacs'])
+        else:
+            command.extend(['bin/rubocop', '--format', 'emacs'])
 
         # Set tempfile_suffix so by default a tempfile is passed onto rubocop:
         self.tempfile_suffix = 'rb'
